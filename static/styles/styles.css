@@ -14,12 +14,14 @@ html, body {
   position: relative;
   background: #e6e6e6;
   margin: 0 auto;
+  display: table;
 
 }
 
 .slide {
   height: 100%;
   margin: 0 auto;
+  display: table-cell;
 }
 
 .arrow {
@@ -37,7 +39,7 @@ html, body {
 
 .arrow.prev {
   opacity: 0.2;
-  left: 20px;
+  left: 40px;
   background-image: url(../images/paddle_prev_999.png);
   transition: 0.2s linear all;
 }
@@ -57,6 +59,41 @@ html, body {
 .arrow.next:hover {
   opacity: 1;
   background-image: url(../images/paddle_next_fff.png);
+}
+
+.arrow_div_pre {
+  float: left;
+  width: 100px;
+  opacity: 0.2;
+  z-index: 1001;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  margin-top: -100px;
+}
+
+.arrow_div_pre:hover {
+  opacity: 0.4;
+}
+
+
+.arrow_div_next {
+  float: right;
+  width: 100px;
+  opacity: 0.2;
+  z-index: 1001;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  margin-top: -100px;
+}
+
+.arrow_div_next:hover {
+  opacity: 0.4;
 }
 
 /*---------------------------------------------------------

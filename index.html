@@ -13,10 +13,19 @@
 </head>
 <body ng-controller="galleryCtrl">
 
-<div class="container slider text-center">
+<div class="slider">
   <img ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
-  <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
-  <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+
+  <a class="arrow prev" href="#" ng-click="nextSlide()">
+    <div class="arrow_div_pre"></div>
+  </a>
+
+
+  <a class="arrow next" href="#" ng-click="prevSlide()">
+    <div class="arrow_div_next">
+    </div>
+  </a>
+
   <nav class="nav">
     <div class="wrapper">
       <ul class="dots">

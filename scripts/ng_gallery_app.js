@@ -19,7 +19,7 @@ angular.module('ng-gallery-app').controller('galleryCtrl', function ($scope, $ti
       'description': 'Image 2'
     },
     {
-      'src': 'http://wmphotostudio.smugmug.com/Engagement/KevinCarolyn/i-qV3fXqz/0/X3/K%26C-13-X3.jpg',
+      'src': 'http://wmphotostudio.smugmug.com/Engagement/KevinCarolyn/i-tXW74ZR/0/X2/K%26C-BEST-9-X2.jpg',
       'description': 'Image 3'
     },
     {
