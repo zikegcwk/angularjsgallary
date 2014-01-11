@@ -14,7 +14,8 @@
 <body ng-controller="galleryCtrl">
 <div class="container slider">
   <img ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
-
+  <a class="arrow prev" href="#" ng-click="nextSlide()">Pre</a>
+  <a class="arrow next" href="#" ng-click="prevSlide()">Next</a>
   <nav class="nav">
     <div class="wrapper">
       <ul class="dots">
