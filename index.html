@@ -9,13 +9,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Angularjs Gallery</title>
   <meta name="description" content="Simple gallery made by Angularjs.">
-  <link rel="stylesheet" href="static/styles/main.css">
+  <link rel="stylesheet" href="static/styles/styles.css">
 </head>
 <body ng-controller="galleryCtrl">
-<div class="container slider">
+
+<div class="container slider text-center">
   <img ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
-  <a class="arrow prev" href="#" ng-click="nextSlide()">Pre</a>
-  <a class="arrow next" href="#" ng-click="prevSlide()">Next</a>
+  <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+  <a class="arrow next" href="#" ng-click="prevSlide()"></a>
   <nav class="nav">
     <div class="wrapper">
       <ul class="dots">
@@ -26,12 +27,12 @@
         </li>
       </ul>
     </div>
-
   </nav>
-
 </div>
+
+
 <!--Not sure why jquery is needed -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="thirdparty/angular-1.2.7/angular.js"></script>
 <script src="thirdparty/angular-1.2.7/angular-animate.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
