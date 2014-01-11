@@ -13,7 +13,21 @@
 </head>
 <body ng-controller="galleryCtrl">
 <div class="container slider">
-  <img ng-repeat="slide in data.slides" class="slide" ng-src="{{slide.src}}">
+  <img ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
+
+  <nav class="nav">
+    <div class="wrapper">
+      <ul class="dots">
+        <li class="dot" ng-repeat="slide in data.slides">
+          <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index)">
+            {{ slide.description }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
 </div>
 <!--Not sure why jquery is needed -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

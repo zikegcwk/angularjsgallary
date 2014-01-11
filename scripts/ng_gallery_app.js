@@ -32,8 +32,18 @@ angular.module('ng-gallery-app').controller('galleryCtrl', function ($scope, $ti
     },
   ];
 
+  $scope.data.currentIndex = 0;
 
+  //set current index of the gallery, it seems.
+  $scope.setCurrentSlideIndex = function (index) {
+    //TODO check to see if index is an integer. Can be done by underscore.
+    $scope.data.currentIndex = index;
+  };
 
+  //check to see if the current index is the index supplied.
+  $scope.isCurrentSlideIndex = function (index) {
+    return $scope.data.currentIndex === index;
+  };
 
 
 
