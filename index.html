@@ -12,7 +12,9 @@
   <link rel="stylesheet" href="static/styles/main.css">
 </head>
 <body ng-controller="galleryCtrl">
-
+<div class="container slider">
+  <img ng-repeat="slide in data.slides" class="slide" ng-src="{{slide.src}}">
+</div>
 <!--Not sure why jquery is needed -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="thirdparty/angular-1.2.7/angular.js"></script>
