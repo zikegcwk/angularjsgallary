@@ -34,25 +34,65 @@ angular.module('ng-gallery-app').controller('galleryCtrl', function ($scope, $ti
 
   $scope.data.currentIndex = 0;
 
-  //set current index of the gallery, it seems.
+  $scope.data.autoPlayStatus = true;
+
   $scope.setCurrentSlideIndex = function (index) {
-    //TODO check to see if index is an integer. Can be done by underscore.
     $scope.data.currentIndex = index;
   };
 
-  //check to see if the current index is the index supplied.
   $scope.isCurrentSlideIndex = function (index) {
     return $scope.data.currentIndex === index;
   };
 
   $scope.prevSlide = function () {
-    $scope.data.currentIndex = ($scope.data.currentIndex < $scope.data.slides.length - 1) ? ++$scope.data.currentIndex : 0;
+    // go to the previous slide or go to the first slide if we get to the end.
+    if ($scope.data.currentIndex < $scope.data.slides.length -1) {
+      $scope.data.currentIndex = $scope.data.currentIndex + 1;
+    } else {
+      $scope.data.currentIndex = 0;
+    }
+
+    //stop auto playing.
+    $scope.data.autoPlayStatus = false;
   };
 
   $scope.nextSlide = function () {
-    $scope.data.currentIndex = ($scope.data.currentIndex > 0) ? --$scope.data.currentIndex : $scope.data.slides.length - 1;
+    if ($scope.data.currentIndex > 0) {
+      $scope.data.currentIndex = $scope.data.currentIndex - 1;
+    } else {
+      $scope.data.currentIndex = $scope.data.slides.length -1;
+    }
+    $scope.data.autoPlayStatus = false;
   };
 
+  $scope.autoPlay = function () {
+    if ($scope.data.autoPlayStatus === true ) {
+      $timeout(
+        function () {
+          if ($scope.data.currentIndex > 0) {
+            $scope.data.currentIndex = $scope.data.currentIndex - 1;
+          } else {
+            $scope.data.currentIndex = $scope.data.slides.length -1;
+          }
+
+          $scope.autoPlay();
+        },
+        500
+      );
+    }
+  };
+
+  $scope.autoPlay();
+
+  $scope.sliderClicked = function () {
+   
+    if ($scope.data.autoPlayStatus === true ) {
+      $scope.data.autoPlayStatus = false;
+    } else {
+      $scope.data.autoPlayStatus = true;
+    }
+    $scope.autoPlay();
+  };
 
 }).animation('.slide-animation', function () {
     return {
@@ -77,3 +117,5 @@ angular.module('ng-gallery-app').controller('galleryCtrl', function ($scope, $ti
       }
     }
   });
+//check to see if the current index is the index supplied.
+//TODO check to see if index is an integer. Can be done by underscore.

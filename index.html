@@ -14,7 +14,7 @@
 <body ng-controller="galleryCtrl">
 
 <div class="slider">
-  <img ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
+  <img ng-click="sliderClicked()" ng-repeat="slide in data.slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.src}}">
 
   <a class="arrow prev" href="#" ng-click="nextSlide()">
     <div class="arrow_div_pre"></div>
@@ -37,6 +37,21 @@
       </ul>
     </div>
   </nav>
+
+  <div class="play_back_control">
+    <a href="#" ng-click="data.autoPlayStatus=true">
+      <div class="play_button">
+        play
+      </div>
+    </a>
+    <a href="#" ng-click="data.autoPlayStatus=false">
+      <div class="pause_button">
+        pause
+      </div>
+    </a>
+  </div>
+
+
 </div>
 
 
